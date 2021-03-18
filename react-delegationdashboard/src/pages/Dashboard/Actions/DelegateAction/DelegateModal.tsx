@@ -11,7 +11,6 @@ import DelegationContractActionButtons from 'components/DelegationContractAction
 
 interface DelegateModalType {
   show: boolean;
-  waitingForLedger: boolean;
   submitPressed: boolean;
   balance: string;
   ledgerError?: string;
@@ -21,14 +20,13 @@ interface DelegateModalType {
 
 const DelegateModal = ({
   show,
-  waitingForLedger,
   submitPressed,
   balance,
   ledgerError,
   handleClose,
   handleContinue,
 }: DelegateModalType) => {
-  const { egldLabel, contractOverview, totalActiveStake, ledgerAccount } = useContext();
+  const { egldLabel, contractOverview, totalActiveStake } = useContext();
 
   const available = entireBalance({
     balance: balance,
@@ -146,7 +144,6 @@ const DelegateModal = ({
                     action="Delegate"
                     actionTitle="Continue"
                     submitPressed={submitPressed}
-                    waitingForLedger={waitingForLedger}
                     handleClose={handleClose}
                   />
                 </form>
