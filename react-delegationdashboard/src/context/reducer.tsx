@@ -140,6 +140,7 @@ export function reducer(state: StateType, action: ActionType): StateType {
         .catch(e => console.error('logout', e));
       removeItem('logged_in');
       removeItem('address');
+      removeItem('ledgerLogin');
       return initialState();
     }
 
